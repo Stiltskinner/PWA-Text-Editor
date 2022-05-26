@@ -27,7 +27,7 @@ export const putDb = async (content) => {
 };
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => {
+export const getDb = async (id) => {
   console.log('GET from the database');
 
   // Create a connection to the database and version we want to use.
@@ -40,7 +40,7 @@ export const getDb = async () => {
   const store = tx.objectStore('jate');
 
   // Use the .getAll() method to get all data in the database.
-  const request = store.getAll();
+  const request = store.get(id);
 
   // Get confirmation of the request.
   const result = await request;
